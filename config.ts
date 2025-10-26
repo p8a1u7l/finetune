@@ -1,7 +1,10 @@
 import "dotenv/config";
 
 export const CFG = {
-  symbols: (process.env.SYMBOLS ?? "BTCUSDT").split(",").map((s) => s.trim()).filter(Boolean),
+  symbols: (process.env.SYMBOLS ?? "BTCUSDT")
+    .split(",")
+    .map((s: string) => s.trim())
+    .filter((s): s is string => s.length > 0),
   interval: process.env.INTERVAL ?? "1m",
   limit: parseInt(process.env.LIMIT ?? "1000", 10),
   outDir: process.env.OUT_DIR ?? "out",

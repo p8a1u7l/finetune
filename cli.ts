@@ -22,7 +22,7 @@ async function gen() {
 
 function split() {
   const files = fs.existsSync(CFG.outDir)
-    ? fs.readdirSync(CFG.outDir).filter((f) => f.endsWith("_raw.jsonl"))
+    ? fs.readdirSync(CFG.outDir).filter((f: string) => f.endsWith("_raw.jsonl"))
     : [];
   let lines: string[] = [];
   for (const f of files) {
